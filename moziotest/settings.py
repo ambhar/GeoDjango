@@ -78,6 +78,8 @@ WSGI_APPLICATION = 'moziotest.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 #SPATIALITE_LIBRARY_PATH='/usr/local/lib/mod_spatialite.dylib'
+AWS_ACCESS_KEY_ID = "AKIAJFVP4JM7SWF7EBDQ"
+AWS_SECRET_ACCESS_KEY = "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"
 
 DATABASES = {
     'default': {
