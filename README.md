@@ -101,7 +101,7 @@ POST : /api/service/create/
 4) polygon: It defines the polygon inside map. An example polygon parameter will look like following:
 "POLYGON ((75.58965426204122 29.17621676045837, 73.91973238704121 26.65244156227428, 77.56719332454122 24.55219433828061, 79.67656832454122 27.70791968504295, 75.58965426204122 29.17621676045837))"
 
-where space separated values are long/lat and comma separated pairs are coordinates of different point on map.
+where space separated values are latitude/longitude and comma separated pairs are coordinates of different point on map.
 
 #### Update Service
 
