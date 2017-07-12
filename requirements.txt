@@ -14,7 +14,6 @@ docutils==0.13.1
 futures==3.1.1
 jmespath==0.9.3
 pathspec==0.5.0
-psycopg2==2.7.1
 pyasn1==0.2.3
 python-dateutil==2.6.1
 pytz==2017.2
