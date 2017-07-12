@@ -40,14 +40,14 @@ class ProviderDetailAPIView(RetrieveAPIView):
     queryset = Provider.objects.all()
     serializer_class = ProviderDetailSerializer
     lookup_field = 'id'
-    permission_classes = [AllowAny]
+    # permission_classes = [AllowAny]
 
 
 class ProviderUpdateAPIView(RetrieveUpdateAPIView):
     queryset = Provider.objects.all()
     serializer_class = ProviderSerializer
     lookup_field = 'id'
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    # permission_classes = [IsAuthenticatedOrReadOnly]
     def perform_update(self, serializer):
         serializer.save(user=self.request.user)
         
@@ -56,7 +56,7 @@ class ProviderDeleteAPIView(DestroyAPIView):
     queryset = Provider.objects.all()
     serializer_class = ProviderDetailSerializer
     lookup_field = 'id'
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    # permission_classes = [IsAuthenticatedOrReadOnly]
 
 
 
@@ -70,19 +70,19 @@ class ServiceListAPIView(ListAPIView):
 
 class ServiceCreateAPIView(CreateAPIView):
     serializer_class = ServiceSerializer
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
 class ServiceDetailAPIView(RetrieveAPIView):
     queryset = Service.objects.all()
     serializer_class = ServiceDetailSerializer
     lookup_field = 'id'
-    permission_classes = [AllowAny]
+    # permission_classes = [AllowAny]
 
 class ServiceUpdateAPIView(RetrieveUpdateAPIView):
     queryset = Service.objects.all()
     serializer_class = ServiceSerializer
     lookup_field = 'id'
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    # permission_classes = [IsAuthenticatedOrReadOnly]
     def perform_update(self, serializer):
         serializer.save(user=self.request.user)
         
@@ -90,7 +90,7 @@ class ServiceDeleteAPIView(DestroyAPIView):
     queryset = Service.objects.all()
     serializer_class = ServiceSerializer
     lookup_field = 'id'
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    # permission_classes = [IsAuthenticatedOrReadOnly]
 
 class SearchedServiceListAPIView(ListAPIView): # searching coordinates sent bu user in polygon field
     serializer_class = ServiceDetailSerializer
