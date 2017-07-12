@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from moziotest import settings_prod
+from moziotest import settings
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include("providers.api.urls", namespace='providers-api')),
 ]
-if settings_prod.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings_prod.STATIC_ROOT)
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
