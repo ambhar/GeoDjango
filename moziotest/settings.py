@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'v6=)p#esx=vtu%n+tb(ks(t0^ii)k^7*2_xvgs&_16q(s7efp5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.gis',
     'rest_framework',
-    'providers'
+    'providers',
+    'accounts'
 ]
 
 GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyBzq72ci_n6-MbgM1ZfXuWpK1nW1okrNoE'
@@ -92,7 +93,18 @@ DATABASES = {
     }
 }
 
+if 'RDS_DB_NAME' in os.environ:
+    DATABASES = {
 
+        'default': {
+            'ENGINE': 'django.contrib.gis.db.backends.postgis',
+            'NAME': os.environ['RDS_DB_NAME'],
+            'USER': os.environ['RDS_USERNAME'],
+            'PASSWORD': os.environ['RDS_PASSWORD'],
+            'HOST': os.environ['RDS_HOSTNAME'],
+            'PORT': os.environ['RDS_PORT'],
+        }
+    }
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
@@ -129,4 +141,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    #'/var/www/static/',
+]
+
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
 STATIC_URL = '/static/'
+

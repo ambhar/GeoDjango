@@ -19,3 +19,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include("providers.api.urls", namespace='providers-api')),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
