@@ -1,8 +1,4 @@
 
-
-DEBUG = False
-ALLOWED_HOSTS = ['*']
-
 """
 Django settings for moziotest project.
 
